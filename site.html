@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RehberAğı — Türkiye’nin Yasal Uyumlu Rehber ve Acente Ağı</title>
+  <meta name="description" content="RehberAğı, 6326 sayılı Kanun, TUREB ve TÜRSAB standartlarında profesyonel turist rehberleri ile seyahat acentelerini eşleştirir.">
+  <meta name="theme-color" content="#0F172A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>/* RehberAğı storefront. Palette is the Kurumsal PDF with AA-safe steps:
+   gold/blue are fills under white text, amber/emerald tones only on navy. */
+:root {
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --gold: #B45309;
+  --gold-tone: #D97706;
+  --blue: #0369A1;
+  --green: #047857;
+  --green-tone: #10B981;
+  --red: #B91C1C;
+  --ink: #0F172A;
+  --ink-2: #475569;
+  --line: #E2E8F0;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --on-navy-2: #CBD5E1;
+  --display: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --text: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--text); overflow-x: hidden; }
+h1, h2, h3 { font-family: var(--display); letter-spacing: -0.02em; margin: 0; }
+p { margin: 0; }
+a { color: var(--blue); }
+.icon { flex: none; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+
+.skip-link { position: absolute; left: 16px; top: -60px; background: #fff; color: var(--ink); padding: 10px 14px; border-radius: 8px; z-index: 20; }
+.skip-link:focus { top: 8px; }
+:focus-visible { outline: 3px solid var(--gold-tone); outline-offset: 2px; }
+
+/* Header */
+.site-nav { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 10; }
+.site-nav__inner { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font: 800 20px var(--display); color: #fff; text-decoration: none; }
+.logo__mark { width: 30px; height: 30px; flex: none; }
+.site-nav__links { display: flex; gap: 28px; margin-left: auto; }
+.site-nav__links a { color: var(--on-navy-2); text-decoration: none; font-weight: 500; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+.site-nav__links a:hover { color: #fff; }
+.site-nav__cta { color: var(--gold-tone); font-weight: 700; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.site-nav__cta:hover { color: #fff; }
+
+/* Hero */
+.hero { background: var(--navy); color: #fff; padding: 56px 0 72px; }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hero h1 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.08; }
+.hero__lead { color: var(--on-navy-2); font-size: 18px; max-width: 52ch; margin-top: 20px; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.btn-site { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 12px; color: #fff; font: 700 16px var(--text); text-decoration: none; text-align: center; transition: filter .15s ease; }
+.btn-site:hover { color: #fff; filter: brightness(1.1); }
+.btn-site--gold { background: var(--gold); }
+.btn-site--blue { background: var(--blue); }
+.hero__free { margin-top: 18px; color: var(--green-tone); font-weight: 600; font-size: 15px; }
+.hero__proof { display: flex; flex-wrap: wrap; gap: 12px 36px; margin: 32px 0 0; }
+.hero__proof dt { font: 700 16px var(--display); }
+.hero__proof dd { margin: 0; color: var(--on-navy-2); font-size: 14px; }
+
+.hero__stage { position: relative; padding: 76px 0 70px; }
+.stage-map { background: var(--navy-2); border: 1px solid #334155; border-radius: 20px; padding: 20px 20px 16px; }
+.stage-map svg { display: block; width: 100%; height: auto; }
+.stage-map__label { margin-top: 10px; font-size: 13px; color: var(--on-navy-2); max-width: 46%; }
+.stage-card { background: #fff; color: var(--ink); border-radius: 14px; padding: 12px 14px; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .6); display: grid; gap: 3px; font-size: 14px; }
+.stage-card b { font: 700 15px/1.3 var(--display); }
+.stage-card small { color: var(--ink-2); font-size: 12.5px; }
+.stage-card__ok { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-weight: 600; font-size: 13px; }
+.stage-card__row { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.stage-card__urgent { display: inline-flex; align-items: center; gap: 4px; color: var(--red); font-weight: 700; font-size: 12px; }
+.stage-card--guide { grid-template-columns: auto 1fr; align-items: center; gap: 12px; position: absolute; top: 0; right: 0; max-width: 300px; }
+.stage-card--guide > div { display: grid; gap: 2px; }
+.stage-card--urgent { position: absolute; right: 0; bottom: 0; max-width: 290px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--gold-tone); display: grid; place-items: center; font: 800 14px var(--display); }
+.stage-card__sample { justify-self: start; font-size: 11.5px; font-weight: 600; color: var(--ink-2); background: #F1F5F9; border-radius: 999px; padding: 1px 8px; }
+
+/* Assurances */
+.assure { background: var(--surface); border-bottom: 1px solid var(--line); padding: 44px 0; }
+.assure__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.assure h2 { font-size: 17px; margin: 14px 0 6px; }
+.assure p { color: var(--ink-2); font-size: 14.5px; }
+.ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; }
+.ic--green { background: #ECFDF5; color: var(--green); }
+.ic--gold { background: #FEF3C7; color: var(--gold); }
+.ic--blue { background: #E0F2FE; color: var(--blue); }
+.ic--navy { background: #F1F5F9; color: var(--navy); }
+
+/* Sections */
+.section { padding: 72px 0; }
+.section--tint { background: #F1F5F9; }
+.container--narrow { max-width: 760px; }
+.section__title { font-size: clamp(26px, 3.4vw, 36px); font-weight: 800; }
+.section__lead { color: var(--ink-2); max-width: 68ch; margin-top: 12px; }
+.section__note { color: var(--ink-2); font-size: 13.5px; margin-top: 12px; }
+.h2-like { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
+
+.steps { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.steps li { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.steps h3 { font-size: 19px; margin: 14px 0 8px; }
+.steps p { color: var(--ink-2); font-size: 15px; }
+.steps__n { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font: 800 16px var(--display); }
+
+.table-wrap { margin-top: 24px; overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.fee-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.fee-table th, .fee-table td { padding: 14px 20px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.fee-table thead th { font-size: 13.5px; color: var(--ink-2); font-weight: 600; background: var(--bg); }
+.fee-table tbody th { font-weight: 700; }
+.fee-table tbody tr:last-child > * { border-bottom: 0; }
+.fee-table .num { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.plan { border-radius: 20px; padding: 28px; display: grid; gap: 14px; align-content: start; }
+.plan--gold { background: var(--surface); border: 2px solid var(--gold); }
+.plan--navy { background: var(--navy); color: #fff; }
+.plan--navy p { color: var(--on-navy-2); }
+.plan h3 { font-size: 22px; }
+.plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.plan__price b { font: 800 28px var(--display); }
+.plan__price span { font-size: 14px; }
+.plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14.5px; }
+.plan li { display: flex; gap: 8px; align-items: flex-start; }
+.plan li .icon { margin-top: 3px; color: var(--green); }
+.plan--navy li .icon { color: var(--green-tone); }
+.plan .btn-site { margin-top: 6px; }
+
+.faq { margin-top: 24px; display: grid; gap: 10px; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 20px; font: 700 16px var(--display); cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .icon { transition: transform .2s ease; }
+.faq details[open] summary .icon { transform: rotate(180deg); }
+.faq details p { padding: 0 20px 18px; color: var(--ink-2); }
+
+.plain-list { margin: 20px 0; padding-left: 20px; display: grid; gap: 8px; color: var(--ink-2); }
+
+/* Footer */
+.site-footer { background: var(--navy); color: var(--on-navy-2); padding: 48px 0 24px; }
+.site-footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
+.site-footer__inner p { margin-top: 12px; max-width: 44ch; font-size: 14.5px; }
+.site-footer nav { display: grid; gap: 4px; align-content: start; }
+.site-footer nav a { color: #fff; min-height: 44px; display: inline-flex; align-items: center; }
+.site-footer__copy { margin-top: 28px; padding-top: 20px; border-top: 1px solid #334155; font-size: 13.5px; }
+
+/* Tablet and phone */
+@media (max-width: 991px) {
+  .hero__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .assure__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps, .plans { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  .site-nav__links { display: none; }
+  .site-nav__cta { margin-left: auto; font-size: 14px; }
+  .hero { padding: 36px 0 48px; }
+  .hero__stage { padding: 0; display: grid; gap: 12px; }
+  .stage-map__label { max-width: none; }
+  .stage-card--guide, .stage-card--urgent { position: static; max-width: none; }
+  .hero__cta .btn-site { width: 100%; }
+  .assure__grid { grid-template-columns: minmax(0, 1fr); }
+  .section { padding: 48px 0; }
+  .fee-table { font-size: 14.5px; }
+  .fee-table th, .fee-table td { padding: 12px 10px; white-space: normal; }
+  .fee-table .num { white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* Blog */
+.post-list { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 16px; }
+.post-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+.post-card h2 { font-size: 22px; font-weight: 800; margin: 4px 0 8px; }
+.post-card h2 a { color: var(--ink); text-decoration: none; display: inline-block; min-height: 44px; }
+.post-card h2 a:hover { color: var(--blue); text-decoration: underline; }
+.post-meta { color: var(--ink-2); font-size: 14px; margin-top: 12px; }
+.post-meta a { display: inline-flex; align-items: center; min-height: 44px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.post-tag { background: #F1F5F9; color: var(--ink-2); border-radius: 999px; padding: 2px 12px; font-size: 13px; font-weight: 600; }
+.post-body { margin-top: 24px; max-width: 68ch; overflow-wrap: anywhere; }
+.post-body h2 { font-size: 24px; font-weight: 800; margin: 36px 0 12px; }
+.post-body h3 { font-size: 19px; font-weight: 700; margin: 28px 0 8px; }
+.post-body p, .post-body ul, .post-body ol { margin: 0 0 16px; }
+.post-body ul, .post-body ol { padding-left: 24px; }
+.post-body li { margin-bottom: 6px; }
+.post-body hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+.post-body code { background: #F1F5F9; border-radius: 4px; padding: 1px 5px; font-size: .92em; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#icerik">İçeriğe geç</a>
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="logo" href="/rehberagi-onizleme/vitrin.html" aria-label="RehberAğı ana sayfa"><svg class="logo__mark" viewBox="0 0 512 512" width="30" height="30" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#B45309"/><g transform="translate(256 256)" fill="#FFFFFF"><rect x="-112" y="-112" width="224" height="224" rx="8"/><rect x="-112" y="-112" width="224" height="224" rx="8" transform="rotate(45)"/></g></svg>RehberAğı</a>
+      <nav class="site-nav__links" aria-label="Ana menü">
+        <a href="/rehberagi-onizleme/vitrin.html#nasil">Nasıl çalışır</a>
+        <a href="/rehberagi-onizleme/vitrin.html#taban-ucret">Taban ücret</a>
+        <a href="/rehberagi-onizleme/vitrin.html#paketler">Hesabını aç</a>
+        <a href="/rehberagi-onizleme/vitrin.html#sss">SSS</a>
+        <a href="/rehberagi-onizleme/vitrin-blog.html">Blog</a>
+      </nav>
+      <a class="site-nav__cta" href="/rehberagi-onizleme/">Uygulamayı Aç / Giriş Yap</a>
+    </div>
+  </header>
+  <main id="icerik">
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1>Türkiye'nin yasal uyumlu rehber ve acente ağı</h1>
+      <p class="hero__lead">6326 sayılı kanun, TUREB ve TÜRSAB standartlarında anlık eşleşme. Rehber de acente de işini telefondan ya da bilgisayardan yönetir.</p>
+      <div class="hero__cta">
+        <a class="btn-site btn-site--gold" href="/rehberagi-onizleme/">Acente Hesabı Aç</a>
+        <a class="btn-site btn-site--blue" href="/rehberagi-onizleme/">Profesyonel Turist Rehberi Kaydı</a>
+      </div>
+      <p class="hero__free">İlk 2 ay tüm acente ve rehberlere ücretsiz</p>
+      <dl class="hero__proof">
+        <div><dt>2026 TUREB</dt><dd>taban ücret tablosu</dd></div>
+        <div><dt>7 bölge · 38 dil</dt><dd>kokart yetki kontrolü</dd></div>
+        <div><dt>Mobil + web</dt><dd>aynı hesap</dd></div>
+      </dl>
+    </div>
+    <div class="hero__stage">
+      <div class="stage-map">
+        <svg viewBox="0 0 300 128" role="img" aria-label="Türkiye'nin yedi coğrafi bölgesi" focusable="false"><path d="M14.69 9.95 L37.12 4.97 L53.35 18.91 L72.69 19.9 L82.74 21.89 L80.42 33.83 L75.78 41.79 L68.05 44.78 L57.22 51.74 L41.76 61.69 L20.1 60.7 L16.24 56.72 L20.1 52.74 L7.73 53.73 L9.28 43.78 L12.37 40.8 L6.19 31.84 L6.96 28.86 L11.6 18.91 Z" fill="#064E3B" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M20.1 60.7 L41.76 61.69 L57.22 51.74 L68.05 44.78 L73.46 52.74 L81.97 63.68 L89.7 69.65 L85.06 77.61 L71.14 87.56 L63.41 99.5 L58.77 111.44 L54.13 110.45 L40.21 108.46 L27.84 103.48 L25.52 86.57 L10.83 77.61 L17.78 69.65 L19.33 61.69 Z" fill="#065F46" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M58.77 111.44 L63.41 99.5 L71.14 87.56 L85.06 77.61 L98.98 95.52 L122.18 103.48 L142.28 93.53 L163.93 77.61 L174.76 73.63 L188.68 87.56 L182.49 97.51 L172.44 111.44 L170.12 117.41 L163.93 125.37 L159.29 122.39 L163.16 111.44 L157.75 108.46 L139.19 107.46 L128.36 117.41 L111.35 122.39 L98.98 112.44 L78.87 105.47 L75.78 111.44 L71.14 117.41 L61.86 119.4 Z" fill="#065F46" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M80.42 33.83 L92.79 33.83 L105.16 28.86 L119.08 23.88 L128.36 31.84 L139.19 41.79 L160.84 45.77 L182.49 37.81 L197.95 43.78 L197.95 51.74 L188.68 65.67 L174.76 73.63 L163.93 77.61 L142.28 93.53 L122.18 103.48 L98.98 95.52 L85.06 77.61 L89.7 69.65 L81.97 63.68 L73.46 52.74 L68.05 44.78 L75.78 41.79 Z" fill="#047857" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M82.74 21.89 L95.88 14.93 L103.62 9.95 L122.18 3.98 L146.92 2.99 L153.11 10.95 L165.48 17.91 L176.3 20.9 L190.22 22.89 L218.06 23.88 L230.43 22.89 L238.16 18.91 L246.67 13.93 L256.72 17.91 L247.44 28.86 L231.98 38.81 L213.42 41.79 L197.95 43.78 L182.49 37.81 L160.84 45.77 L139.19 41.79 L128.36 31.84 L119.08 23.88 L105.16 28.86 L92.79 33.83 L80.42 33.83 Z" fill="#0F766E" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M246.67 13.93 L262.91 12.94 L276.83 21.89 L279.92 29.85 L296.93 49.75 L290.75 55.72 L286.11 65.67 L289.2 75.62 L293.84 91.54 L289.2 102.49 L273.73 98.51 L272.19 91.54 L258.27 83.58 L244.35 77.61 L231.98 71.64 L216.51 77.61 L202.59 83.58 L188.68 87.56 L174.76 73.63 L188.68 65.67 L197.95 51.74 L197.95 43.78 L213.42 41.79 L231.98 38.81 L247.44 28.86 L256.72 17.91 Z" fill="#059669" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M188.68 87.56 L202.59 83.58 L216.51 77.61 L231.98 71.64 L244.35 77.61 L258.27 83.58 L272.19 91.54 L273.73 98.51 L256.72 97.51 L241.26 102.49 L222.7 110.45 L207.23 109.45 L191.77 106.47 L177.85 109.45 L172.44 111.44 L182.49 97.51 Z" fill="#10B981" stroke="#334155" stroke-width="0.9" stroke-linejoin="round"/><path d="M16.24 36.82 L29.38 26.27 L41.76 24.48 L51.81 25.47 L55.67 28.26 L53.35 34.82 L37.12 36.82 L27.84 37.81 Z" fill="#1B2A44" stroke="#334155" stroke-width=".5"/><path d="M275.28 70.65 L274.51 68.06 L272.03 66.07 L268.63 64.87 L264.92 64.87 L261.52 66.07 L259.04 68.06 L258.27 70.65 L259.04 73.23 L261.52 75.22 L264.92 76.42 L268.63 76.42 L272.03 75.22 L274.51 73.23 Z" fill="#1B2A44" stroke="#334155" stroke-width=".5"/><rect x="49.67" y="21.08" width="5.2" height="5.2" fill="#0F172A" stroke="#fff" stroke-width="1"/><rect x="138.29" y="68.64" width="5.2" height="5.2" fill="#0F172A" stroke="#fff" stroke-width="1"/><rect x="21.22" y="72.62" width="5.2" height="5.2" fill="#0F172A" stroke="#fff" stroke-width="1"/><rect x="76.27000000000001" y="102.87" width="5.2" height="5.2" fill="#0F172A" stroke="#fff" stroke-width="1"/></svg>
+
+        <p class="stage-map__label">Kokart yetki bölgeleri · 7 coğrafi bölgenin tamamı kapsamda; tonlar yalnız bölgeleri ayırır</p>
+      </div>
+      <div class="stage-card stage-card--guide">
+        <span class="avatar" aria-hidden="true">MK</span>
+        <div>
+          <b>Murat Kaya</b>
+          <span class="stage-card__ok"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg> TUREB Eylemli Rehber</span>
+          <small>İngilizce, İspanyolca · Ülkesel kokart</small>
+          <span class="stage-card__sample">Örnek · temsilî ekran</span>
+        </div>
+      </div>
+      <div class="stage-card stage-card--urgent">
+        <div class="stage-card__row"><span class="stage-card__urgent"><svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg> ACİL DEPAR · YARIN</span><small>TÜRSAB A-10482</small></div>
+        <span class="stage-card__sample">Örnek · temsilî ekran</span>
+        <b>Kapadokya &amp; Konya Kültür Turu (4 Gün)</b>
+        <span class="stage-card__ok"><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Taban ücret kilidi: ₺6.708/gün · 2026 TUREB tabanı</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="assure" aria-label="Güvenceler">
+  <div class="container assure__grid">
+    <div><span class="ic ic--green"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></span><h2>Yalnız lisanslı profesyoneller</h2><p>Kokart, ruhsatname ve TÜRSAB belgesi doğrulanmadan hesap açılmaz.</p></div>
+    <div><span class="ic ic--gold"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h2>Taban ücretin altında ilan yok</h2><p>2026 TUREB tarifesi her ilanda ve teklifte otomatik uygulanır.</p></div>
+    <div><span class="ic ic--blue"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.1 6 8 3 2 6v15l6-3 6 3 6-3V3z"/><path d="M8 3v15M14 6v15"/></svg></span><h2>Kokart yetkisine göre eşleşme</h2><p>Bölgesel kokart kendi bölgesinde, rehber yetkili olduğu dilde görev alır.</p></div>
+    <div><span class="ic ic--navy"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 13h4M10 17h4"/></svg></span><h2>Sözleşme ve QR denetim</h2><p>Her eşleşme zaman damgalı sözleşme ve saha denetim karekodu üretir.</p></div>
+  </div>
+</section>
+<section class="section" id="nasil">
+  <div class="container">
+    <h2 class="section__title">Nasıl çalışır</h2>
+    <ol class="steps">
+      <li><span class="steps__n">1</span><h3>Belgeni doğrulat</h3><p>Profesyonel turist rehberi ruhsat ve kokart bilgisiyle, acente TÜRSAB belge numarasıyla kaydolur.</p></li>
+      <li><span class="steps__n">2</span><h3>İlan aç, ilana başvur</h3><p>Acente taban ücretin üstünde ilan verir; rehber yetkili olduğu dil ve bölgedeki işlere başvurur.</p></li>
+      <li><span class="steps__n">3</span><h3>Sözleşmeyi imzala, sahaya çık</h3><p>Eşleşme zaman damgalı sözleşmeye dönüşür; sahada QR ile denetlenebilir.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="section section--tint" id="taban-ucret">
+  <div class="container">
+    <h2 class="section__title">2026 TUREB taban ücret tarifesi</h2>
+    <p class="section__lead">6326 sayılı kanun gereği bu tutarların altında ilan, teklif ya da eşleşme oluşturulamaz. Tutarlar net ücrettir. Türkçe tarife yalnızca tüm gerekli diller Türkçe ise geçerlidir.</p>
+    <div class="table-wrap">
+      <table class="fee-table">
+        <caption class="visually-hidden">2026 TUREB net taban ücretleri</caption>
+        <thead><tr><th scope="col">Tur türü</th><th scope="col">Birim</th><th scope="col" class="num">Yabancı dil</th><th scope="col" class="num">Türkçe</th></tr></thead>
+        <tbody><tr><th scope="row">Günlük Tur</th><td>gün</td><td class="num">₺5.566</td><td class="num">₺3.897</td></tr><tr><th scope="row">Paket Tur</th><td>gün</td><td class="num">₺6.708</td><td class="num">₺4.696</td></tr><tr><th scope="row">Transfer</th><td>sefer</td><td class="num">₺2.790</td><td class="num">₺1.953</td></tr><tr><th scope="row">Gece Turu</th><td>sefer</td><td class="num">₺2.790</td><td class="num">₺1.953</td></tr><tr><th scope="row">Aylık Görev</th><td>ay</td><td class="num">₺55.620</td><td class="num">₺38.934</td></tr></tbody>
+      </table>
+    </div>
+    <p class="section__note">Kaynak: KTB Olur 16.12.2025 / 7651550</p>
+  </div>
+</section>
+<section class="section" id="paketler">
+  <div class="container">
+    <h2 class="section__title">Hesabını aç</h2>
+    <p class="section__lead">İki hesap türü var. Kaydolduktan sonra belgelerin doğrulanır; ilk 2 ay ücretsizdir.</p>
+    <div class="plans">
+      <article class="plan plan--gold">
+        <h3>Profesyonel Rehber</h3>
+        <p class="plan__price"><b>İlk 2 ay 0 ₺</b><span>belge doğrulamasıyla başlar</span></p>
+        <p>Sınırsız tur başvurusu, acil depar bildirimleri, dijital sözleşme, QR denetim ekranı.</p>
+        <ul>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Sınırsız tur başvurusu ve davet yanıtlama</li>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Acil depar anlık bildirimleri</li>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Zaman damgalı dijital sözleşme ve QR denetim</li>
+        </ul>
+        <a class="btn-site btn-site--blue" href="/rehberagi-onizleme/">Profesyonel Turist Rehberi Kaydı</a>
+      </article>
+      <article class="plan plan--navy">
+        <h3>Kurumsal Acente</h3>
+        <p class="plan__price"><b>İlk 2 ay 0 ₺</b><span>belge doğrulamasıyla başlar</span></p>
+        <p>Sınırsız ilan, harita bazlı rehber arama, çoklu operasyon tablosu, sözleşme arşivi.</p>
+        <ul>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Sınırsız tur ilanı ve 2026 TUREB taban kilidi</li>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Türkiye bölge haritası üzerinden rehber bulma</li>
+          <li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Çoklu operasyon takibi ve sözleşme PDF arşivi</li>
+        </ul>
+        <a class="btn-site btn-site--gold" href="/rehberagi-onizleme/">Acente Hesabı Aç</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section section--tint" id="sss">
+  <div class="container container--narrow">
+    <h2 class="section__title">Sık sorulan sorular</h2>
+    <div class="faq">
+      <details><summary>Ücretsiz dönem nasıl işliyor?<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary><p>İlk 2 ay tüm acente ve profesyonel turist rehberleri için ücretsizdir.</p></details>
+      <details><summary>Taban ücretin altında ilan verebilir miyim?<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary><p>Hayır. Yukarıdaki 2026 TUREB tarifesinin altında ilan, teklif ya da eşleşme oluşturulamaz; kontrol hem uygulamada hem veritabanında yapılır.</p></details>
+      <details><summary>Bölgesel kokartla her yerde çalışabilir miyim?<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary><p>Hayır. Bölgesel kokart yalnızca kendi bölgesinde geçerlidir; yetkin olmadığın dilde de görev alamazsın. Uygulama bu engelleri ilanın üzerinde gerekçesiyle gösterir.</p></details>
+      <details><summary>Telefondan mı bilgisayardan mı kullanılır?<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary><p>İkisinden de, aynı hesapla. Bilgisayarda liste ve ayrıntı yan yana açılır.</p></details>
+      <details><summary>Kişisel verilerim nasıl işleniyor?<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary><p>Aşağıdaki kişisel veri özetine ve Aydınlatma Metni'ne bakabilirsin.</p></details>
+    </div>
+  </div>
+</section>
+<section class="section" id="kisisel-veri">
+  <div class="container container--narrow">
+    <h2 class="section__title">Kişisel verilerin</h2>
+    <ul class="plain-list">
+      <li>Kayıtta ad, iletişim bilgisi ve belge bilgilerin (ruhsat, sicil no, TÜRSAB belge no) alınır.</li>
+      <li>Ruhsat ve sicil bilgilerini yalnızca eşleştiğin acente, eşleşme süresince görür.</li>
+      <li>Bilgilerin yalnızca eşleşme ve doğrulama amacıyla, gerektiği süre boyunca saklanır.</li>
+    </ul>
+    <p><a href="/rehberagi-onizleme/vitrin-kvkk.html">KVKK Aydınlatma Metni</a></p>
+  </div>
+</section></main>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <a class="logo" href="/rehberagi-onizleme/vitrin.html"><svg class="logo__mark" viewBox="0 0 512 512" width="30" height="30" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#B45309"/><g transform="translate(256 256)" fill="#FFFFFF"><rect x="-112" y="-112" width="224" height="224" rx="8"/><rect x="-112" y="-112" width="224" height="224" rx="8" transform="rotate(45)"/></g></svg>RehberAğı</a>
+        <p>6326 sayılı Kanun, TUREB ve TÜRSAB standartlarında profesyonel turist rehberi ve seyahat acentesi eşleştirme ağı.</p>
+      </div>
+      <nav aria-label="Alt bilgi">
+        <a href="/rehberagi-onizleme/vitrin-kvkk.html">KVKK Aydınlatma Metni</a>
+        <a href="https://rbs.tureb.org.tr/belgedogrulama/index" rel="noopener" target="_blank">TUREB belge doğrulama</a>
+        <a href="https://online.tursab.org.tr/publicpages/embedded/agencysearch/" rel="noopener" target="_blank">TÜRSAB acente sorgulama</a>
+      </nav>
+    </div>
+    <div class="container site-footer__copy">© 2026 RehberAğı</div>
+  </footer>
+  <script>// Keeps at most one FAQ answer open so the section stays short on phones.
+document.querySelectorAll('.faq details').forEach((item, _, all) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    all.forEach((other) => {
+      if (other !== item) other.open = false;
+    });
+  });
+});
+</script>
+</body>
+</html>
